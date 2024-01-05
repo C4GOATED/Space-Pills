@@ -1,20 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    private PauseManager pauseManager;
+    public PauseManager pauseManager;
 
     private void Start()
     {
-        pauseManager = FindObjectOfType<PauseManager>();
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Pause the game when the enemy collides with the player
-            pauseManager.PauseGame();
+
+            // Load the desired scene (Replace "YourSceneName" with the name of your scene)
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
